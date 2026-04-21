@@ -33,8 +33,12 @@ def delete_todo(todo_id: int):
     todos = [t for t in todos if t["id"] != todo_id]
     return {"status": "ok"}
 
+# 获取当前文件所在目录，确保静态文件路径正确
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+static_dir = os.path.join(BASE_DIR, "static")
+
 # 挂载静态文件
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
