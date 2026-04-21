@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/", response_class=PlainTextResponse)
 def read_root():
-    return "HelloWorld - Updated version!"
+    return "HelloWorld - Updated version!->>>>"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
